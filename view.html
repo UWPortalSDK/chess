@@ -1,9 +1,10 @@
 <!-- Primary template that will get shown when widget loads -->
-<script type="text/ng-template" id="chessMain.html"> 
+<script type="text/ng-template" id="chessMain.html">
+    <!-- GitHub test -->
     <!-- CECA Infosession -->
     <div class="collapseMe">
         <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" ng-class="{active: currentTab.value == 'activeGames-tab'}" 
+            <li role="presentation" ng-class="{active: currentTab.value == 'activeGames-tab'}"
                 ng-click="currentTab.value = 'activeGames-tab'">
                 <a href="" role="tab">Active games</a>
             </li>
@@ -21,7 +22,7 @@
                 <a href="" role="tab">Help</a>
             </li>
         </ul>
-   
+
         <div ng-show="currentTab.value == 'activeGames-tab'">
           Active games listing.<br />
             <p>My active games:</p>
@@ -32,10 +33,10 @@
             FEN:{{fenEl}}<br />
             PGN:{{pgnEl}}<br />
         </div><!-- active tab -->
-        
+
         <div ng-show="currentTab.value == 'leaderboard-tab'">
         </div><!-- leaderboard tab -->
-        
+
         <div ng-show="currentTab.value == 'help-tab'">
             <p>The rules of chess (also known as the laws of chess) are rules governing the play of the game of chess. While the exact origins of chess are unclear, modern rules first took form during the Middle Ages. The rules continued to be slightly modified until the early 19th century, when they reached essentially their current form. The rules also varied somewhat from place to place. Today chess's international governing body FIDE (Fédération Internationale des Échecs) sets the standard rules, with slight modifications made by some national organizations for their own purposes. There are variations of the rules for fast chess, correspondence chess, online chess, and chess variants.</p>
 			<p>Chess is a game played by two people on a chessboard, with sixteen pieces (of six types) for each player. Each type of piece moves in a distinct way. The goal of the game is to checkmate, that is, to threaten the opponent's king with inevitable capture. Games do not necessarily end with checkmate – players often resign if they believe they will lose. In addition, there are several ways that a game can end in a draw.</p>
@@ -44,12 +45,12 @@
             https://en.wikipedia.org/wiki/Rules_of_chess
         </div><!-- help tab -->
     </div>
-        
-    
+
+
 </script>
 
 <!-- This template gets shown when user clicks one of the items in the list -->
-<script type="text/ng-template" id="chessDetails.html"> 
+<script type="text/ng-template" id="chessDetails.html">
 	<!-- 'wr' and 'wc' are short for 'widget-row' and 'widget-cell' -->
 	<wr>
 		<wc><h2>{{detailsItem.title}}</h2></wc>
