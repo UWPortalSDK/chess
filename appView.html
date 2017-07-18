@@ -1,59 +1,20 @@
 <!-- Primary template that will get shown when widget loads -->
 <script type="text/ng-template" id="chessMain.html"> 
-    <!-- CECA Infosession -->
-    <div class="collapseMe">
-        <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" ng-class="{active: currentTab.value == 'activeGames-tab'}" 
-                ng-click="currentTab.value = 'activeGames-tab'">
-                <a href="" role="tab">Active games</a>
-            </li>
-			<li role="presentation" ng-class="{active: currentTab.value == 'history-tab'}"
-                ng-click="currentTab.value = 'history-tab'">
-                <a href="" role="tab">History</a>
-            </li>
-            <li role="presentation" ng-class="{active: currentTab.value == 'leaderboard-tab'}"
-                ng-click="currentTab.value = 'leaderboard-tab'">
-                <a href="" role="tab">Leaderboard</a>
-            </li>
-
-			<li role="presentation" ng-class="{active: currentTab.value == 'help-tab'}"
-                ng-click="currentTab.value = 'help-tab'">
-                <a href="" role="tab">Help</a>
-            </li>
-        </ul>
-   
-        <div ng-show="currentTab.value == 'activeGames-tab'">
-          Active games listing.<br />
-            <p>My active games:</p>
-            <button href="" ng-click="showBoard()" class="btn btn-default btn-small pull-right">Show Board</button>
-            <div id="board" style="width: 400px"></div>
-            <br />
-            Status:{{statusEl}}<br />
-            FEN:{{fenEl}}<br />
-            PGN:{{pgnEl}}<br />
-        </div><!-- active tab -->
-        
-        <div ng-show="currentTab.value == 'leaderboard-tab'">
-        </div><!-- leaderboard tab -->
-        
-        <div ng-show="currentTab.value == 'help-tab'">
-            <p>The rules of chess (also known as the laws of chess) are rules governing the play of the game of chess. While the exact origins of chess are unclear, modern rules first took form during the Middle Ages. The rules continued to be slightly modified until the early 19th century, when they reached essentially their current form. The rules also varied somewhat from place to place. Today chess's international governing body FIDE (Fédération Internationale des Échecs) sets the standard rules, with slight modifications made by some national organizations for their own purposes. There are variations of the rules for fast chess, correspondence chess, online chess, and chess variants.</p>
-			<p>Chess is a game played by two people on a chessboard, with sixteen pieces (of six types) for each player. Each type of piece moves in a distinct way. The goal of the game is to checkmate, that is, to threaten the opponent's king with inevitable capture. Games do not necessarily end with checkmate – players often resign if they believe they will lose. In addition, there are several ways that a game can end in a draw.</p>
-            General rules<br />
-            Link to help.<br />
-            https://en.wikipedia.org/wiki/Rules_of_chess
-        </div><!-- help tab -->
-    </div>
-        
-    
+	<div class="item item-text-wrap item-icon-right" ng-repeat="item in items" ng-click="showDetails(item)">
+		<span class="itemName">{{item.title}}</span>
+		<span ng-repeat= "tag in item.tags" class="badge badge-balanced">
+			{{tag}}
+		</span>
+	
+		<i class="ion-chevron-right icon"></i>
+	</div>
 </script>
 
 <!-- This template gets shown when user clicks one of the items in the list -->
 <script type="text/ng-template" id="chessDetails.html"> 
-	<!-- 'wr' and 'wc' are short for 'widget-row' and 'widget-cell' -->
-	<wr>
-		<wc><h2>{{detailsItem.title}}</h2></wc>
-	</wr>
-	<wr><wc><span ng-repeat= "tag in detailsItem.tags" class="label label-success">{{tag}}</span></wc></wr>
-	<wr><wc><div class="pDetails">{{detailsItem.details}}</div></wc></wr>
+	<div class="item">
+		{{detailsItem.title}}
+	</div>
+	<div class="item item-text-wrap"><span ng-repeat= "tag in detailsItem.tags" class="badge badge-balanced">{{tag}}</span></div>
+	<div class="item item-text-wrap"><p>{{detailsItem.details}}</p></div>
 </script>
